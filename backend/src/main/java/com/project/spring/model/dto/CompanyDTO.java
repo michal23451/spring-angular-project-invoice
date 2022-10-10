@@ -27,6 +27,6 @@ public class CompanyDTO {
     //relations
     private Long userIdDTO;
     private String usernameDTO;
-    private Set<Long> invoiceIdDTO;
-    private Set<String> invoiceNumberDTO;
+    private Set<Long> invoiceIdsDTO;
+    private Set<String> invoiceNumbersDTO;
 }
