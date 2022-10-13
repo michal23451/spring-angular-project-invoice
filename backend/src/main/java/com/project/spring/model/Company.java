@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 
 @Entity
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"city", "street", "nip"})})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,13 +18,13 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private String name;
     private String city;
     private String zipCode;
     private String street;
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private Integer nip;
-    @Column(unique = true)
     private Integer regon;
     @CreationTimestamp
     private LocalDateTime created;

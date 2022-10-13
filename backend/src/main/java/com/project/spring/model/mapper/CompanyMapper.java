@@ -20,10 +20,10 @@ public interface CompanyMapper {
             @Mapping(target = "regon", source = "request.regonRequest"),
             @Mapping(target = "created", ignore = true),
             @Mapping(target = "updated", ignore = true),
-            @Mapping(target = "user", source = "applicationUser"),
+            @Mapping(target = "user", ignore = true),
             @Mapping(target = "invoices", ignore = true)
     })
-    Company mapCreateCompanyRequestToCompany(ApplicationUser applicationUser, CreateCompanyRequest request);
+    Company mapCreateCompanyRequestToCompany(CreateCompanyRequest request);
 
     @Mappings(value = {
             @Mapping(target = "idDTO", source = "company.id"),
@@ -40,5 +40,5 @@ public interface CompanyMapper {
             @Mapping(target = "invoiceIdsDTO", ignore = true),
             @Mapping(target = "invoiceNumbersDTO", ignore = true)
     })
-    CompanyDTO mapCompanyAndUserToCompanyDTO(ApplicationUser applicationUser, Company company);
+    CompanyDTO mapUserAndCompanyToCompanyDTO(ApplicationUser applicationUser, Company company);
 }
